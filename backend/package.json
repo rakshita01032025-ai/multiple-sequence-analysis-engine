@@ -1,0 +1,28 @@
+{
+  "name": "multi-sequence-analysis-engine",
+  "version": "1.0.0",
+  "description": "Production-quality multi-algorithm sequence comparison engine (C++ core, Node.js/Express API, PostgreSQL persistence).",
+  "main": "server/src/app.js",
+  "scripts": {
+    "start": "node server/src/app.js",
+    "dev": "node --watch server/src/app.js",
+    "build:engine": "make -C engine all",
+    "test:engine": "make -C engine test",
+    "test:server": "node --test server/tests",
+    "test": "npm run test:engine && npm run test:server",
+    "db:migrate": "node server/src/db/migrate.js"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.2.0",
+    "helmet": "^7.1.0",
+    "pg": "^8.11.5",
+    "winston": "^3.13.0"
+  }
+}
